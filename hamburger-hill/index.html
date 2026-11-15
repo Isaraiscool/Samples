@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Hamburger Hill sample site</title>
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&amp;family=Zilla+Slab:wght@500;600&amp;display=swap" rel="stylesheet">
+<style>
+/* Direction: big-hearted, Southern, plain-spoken. World: the trailer's own black sign with cream
+   lettering on a wooden barrel head. One accent (griddle orange). One signature ("Est. 2021", once). */
+:root{
+  --page:#F7F0E3;--surface:#FFFDF8;--ink:#1A1512;--ink-2:#4A4038;--ink-3:#5E5348;
+  --line:rgba(26,21,18,.16);--red:#F59A23;--red-dark:#FFB54D;--green:#0B6B3A;--cream:#F7F0E3;--cream-2:#D6CBB9;
+  --display:"Zilla Slab",Rockwell,Georgia,serif;
+  --body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box}
+html{scroll-padding-bottom:6rem}
+body{margin:0;background:var(--page);color:var(--ink);font-family:var(--body);font-size:1.125rem;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-underline-offset:.2em;text-decoration-thickness:1px}
+a:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:4px}
+summary:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:4px}
+.wrap{max-width:70rem;margin:0 auto;padding:0 1.5rem}
+h1,h2,h3{font-family:var(--display);font-weight:600;margin:0;text-wrap:balance}
+p{margin:0}
+.skip{position:absolute;left:-999px;top:0;background:var(--surface);color:var(--ink);padding:.75rem 1rem;font-weight:600;z-index:30}
+.skip:focus{left:.5rem;top:.5rem}
+.sample{background:var(--surface);font-size:.875rem;color:var(--ink-2);padding:.5rem 0;border-bottom:1px solid var(--line)}
+
+.top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:0 1rem;padding-top:1.25rem;padding-bottom:1.25rem}
+.name{font-family:var(--display);font-weight:600;font-size:1.25rem}
+.top a{white-space:nowrap;font-weight:500;font-size:1rem;padding:.75rem 0;display:inline-block;font-variant-numeric:tabular-nums}
+
+.hero{background:var(--ink);color:var(--cream)}
+.hero a:focus-visible{outline-color:var(--cream)}
+.name{white-space:nowrap}
+.est{font-size:.875rem;color:var(--cream-2);margin-left:.5rem;font-family:var(--body);font-weight:400}
+.hero .grid{display:grid;gap:2rem;padding-top:1rem;padding-bottom:3.5rem}
+.hero h1{font-size:clamp(2.5rem,9vw,4.25rem);line-height:1.02;letter-spacing:-.015em;max-width:15ch}
+.lede{margin-top:1rem;font-size:1.25rem;color:var(--cream-2);max-width:26rem}
+.cta{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.5rem;margin-top:2rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:3.5rem;padding:.75rem 1.5rem;font-family:var(--body);font-weight:600;font-size:1.125rem;text-decoration:none;border-radius:.625rem;background:var(--red);color:var(--ink);border:1px solid var(--red)}
+.btn:hover{background:var(--red-dark);border-color:var(--red-dark)}
+.btn svg{width:1.125rem;height:1.125rem;flex:none}
+.btn.quiet{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.btn.quiet:hover{background:#3A302A;border-color:#3A302A}
+.cta .btn{flex:1 1 100%}
+.textlink{font-weight:500;padding:.75rem 0;display:inline-block;font-variant-numeric:tabular-nums}
+.visual{position:relative}
+.plate{display:block;width:100%;height:auto;max-width:34rem;margin:0 auto}
+
+section{padding:3.5rem 0 0}
+h2{font-size:clamp(1.75rem,5vw,2.25rem);line-height:1.15;letter-spacing:-.01em}
+.order{display:grid;gap:2.5rem;margin-top:1.5rem}
+.sub{font-family:var(--body);font-size:1rem;font-weight:500;color:var(--ink-2);margin-top:1.5rem}
+.rank{list-style:none;margin:.75rem 0 0;padding:0;border-top:1px solid var(--ink)}
+.rank li{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+.rank h3{font-size:1.5rem}
+.rank span{color:var(--ink-2);font-size:1rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.menu{list-style:none;margin:.75rem 0 0;padding:0;border-top:1px solid var(--ink)}
+.menu li{font-family:var(--display);font-weight:600;font-size:1.375rem;padding:1rem 0;border-bottom:1px solid var(--line);break-inside:avoid}
+.days{font-family:var(--display);font-weight:600;font-size:1.5rem;line-height:1.25;margin-top:.75rem;max-width:22ch}
+.cols{display:grid;gap:2.5rem;margin-top:0}
+@media (min-width:48rem){.cols{grid-template-columns:3fr 2fr;gap:4rem}}
+.note{margin-top:.75rem;font-size:.875rem;color:var(--ink-3)}
+
+.photos{list-style:none;margin:1.5rem 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.ph{aspect-ratio:4/3;border-radius:.75rem;background:var(--surface);border:1px dashed rgba(30,42,34,.4);display:grid;place-items:center;text-align:center;padding:1rem;font-size:.875rem;color:var(--ink-2)}
+.ph:first-child{grid-column:1/-1;aspect-ratio:16/9}
+.ph b{display:block;font-weight:600;color:var(--ink);font-size:1rem}
+
+.call{margin-top:3.5rem;background:var(--surface);border-top:1px solid var(--line);padding:3rem 0}
+.call .grid{display:grid;gap:2rem}
+.num{font-family:var(--display);font-weight:600;font-size:clamp(2.25rem,10vw,3.5rem);line-height:1.05;letter-spacing:-.01em;margin:.5rem 0 1.5rem;font-variant-numeric:tabular-nums}
+.facts{margin:0}
+.facts div{padding:.75rem 0;border-top:1px solid var(--line)}
+.facts dt{font-size:.875rem;color:var(--ink-3)}
+.facts dd{margin:.25rem 0 0}
+.facts a{display:inline-block;padding:.5rem 0}
+
+footer{padding:2rem 0 3rem;font-size:.9375rem;color:var(--ink-2);border-top:1px solid var(--line)}
+details{margin-top:1rem;background:var(--surface);border:1px solid var(--line);border-radius:.75rem;padding:.25rem 1rem}
+summary{cursor:pointer;font-weight:600;color:var(--ink);padding:.75rem 0}
+details ul{margin:0;padding:0 0 .75rem 1.25rem}
+details li{margin-top:.25rem}
+.sticky{display:none}
+@media (max-width:47.99rem){
+  .js .sticky{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:.75rem;z-index:20;visibility:hidden;opacity:0;transform:translateY(120%)}
+  .js .sticky.show{visibility:visible;opacity:1;transform:none}
+  .js footer{padding-bottom:7rem}
+}
+@media (min-width:48rem){
+  .wrap{padding:0 2rem}
+  .hero .grid{grid-template-columns:5fr 6fr;align-items:center;gap:3rem;padding-top:2rem;padding-bottom:4rem}
+  .cta .btn{flex:0 0 auto}
+    .order{grid-template-columns:3fr 2fr;gap:4rem}
+  .photos{grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr}
+  .ph{aspect-ratio:auto;min-height:11rem}
+  .ph:first-child{grid-column:1;grid-row:1/3;aspect-ratio:auto}
+  .call .grid{grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+}
+/* Motion: one short entrance on load, colour changes on hover, a small press.
+   All of it is skipped for visitors who ask their device for reduced motion. */
+@media (prefers-reduced-motion:no-preference){
+  .btn{transition:background-color .15s var(--ease),color .15s var(--ease),border-color .15s var(--ease),transform .1s var(--ease)}
+  .btn:active{transform:scale(.98)}
+  .hero h1,.hero .lede,.hero .cta,.hero .visual{animation:enter .5s var(--ease) both}
+  .hero .lede{animation-delay:.06s}.hero .cta{animation-delay:.12s}.hero .visual{animation-delay:.18s}
+  .js .sticky{transition:transform .25s var(--ease),opacity .25s var(--ease),visibility .25s}
+}
+@keyframes enter{from{opacity:0;transform:translateY(.75rem)}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<aside class="sample" aria-label="Sample notice"><div class="wrap">Sample design. Not the official site</div></aside>
+
+<header class="hero">
+  <div class="wrap top">
+    <p class="name">Hamburger Hill<span class="est">Est. 2021</span></p>
+    <a href="tel:+18657550440">(865) 755-0440</a>
+  </div>
+  <div class="wrap grid">
+    <div>
+      <h1>Smash burgers, turkey burgers and Pooh's Puddin</h1>
+      <p class="lede">A food trailer on wheels on Oak Ridge Highway in Knoxville</p>
+      <div class="cta">
+        <a class="btn" href="tel:+18657550440"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Call in an order</a>
+        <a class="textlink" href="https://www.google.com/maps/search/?api=1&amp;query=Hamburger+Hill+Food+Truck+Knoxville&amp;query_place_id=ChIJAYW3r0o7XIgR8p6G33CTPH0">Get directions</a>
+      </div>
+    </div>
+    <div class="visual">
+      <svg class="plate" viewBox="0 0 560 500" aria-hidden="true" focusable="false">
+        <defs><clipPath id="head"><circle cx="280" cy="250" r="222"/></clipPath></defs>
+        <circle cx="280" cy="250" r="222" fill="#8A5A2B"/>
+        <g clip-path="url(#head)"><path d="M95 20 V480" stroke="#6E4520" stroke-width="3"/><path d="M157 20 V480" stroke="#6E4520" stroke-width="3"/><path d="M219 20 V480" stroke="#6E4520" stroke-width="3"/><path d="M281 20 V480" stroke="#6E4520" stroke-width="3"/><path d="M343 20 V480" stroke="#6E4520" stroke-width="3"/><path d="M405 20 V480" stroke="#6E4520" stroke-width="3"/><path d="M467 20 V480" stroke="#6E4520" stroke-width="3"/></g>
+        <circle cx="280" cy="250" r="222" fill="none" stroke="#3A2A1C" stroke-width="16"/>
+        <circle cx="280" cy="250" r="196" fill="none" stroke="#3A2A1C" stroke-width="3"/>
+        <rect x="152" y="344" width="256" height="46" rx="20" fill="#D9963B" stroke="#9A5F1C" stroke-width="3"/>
+        <rect x="134" y="312" width="292" height="36" rx="18" fill="#4A2A18"/>
+        <path d="M138 304 H422 L404 322 L372 308 L334 332 L298 308 L254 326 L212 308 L172 320 Z" fill="#F6C231"/>
+        <rect x="134" y="270" width="292" height="36" rx="18" fill="#4A2A18"/>
+        <path d="M138 262 H422 L398 280 L362 266 L322 288 L284 266 L240 282 L200 266 L166 278 Z" fill="#F6C231"/>
+        <path d="M130 250 q13 22 26 0 q13 22 26 0 q13 22 26 0 q13 22 26 0 q13 22 26 0 q13 22 26 0 q13 22 26 0 q13 22 26 0 q13 22 26 0 q13 22 26 0 q13 22 26 0 L416 236 L130 236 Z" fill="#6FA83A"/>
+        <path d="M150 240 Q150 118 280 118 Q410 118 410 240 Z" fill="#D9963B" stroke="#9A5F1C" stroke-width="3"/>
+        <ellipse cx="214" cy="176" rx="7" ry="4" fill="#FBE9C2" transform="rotate(-20 214 176)"/><ellipse cx="262" cy="154" rx="7" ry="4" fill="#FBE9C2" transform="rotate(10 262 154)"/><ellipse cx="310" cy="150" rx="7" ry="4" fill="#FBE9C2" transform="rotate(-8 310 150)"/><ellipse cx="356" cy="172" rx="7" ry="4" fill="#FBE9C2" transform="rotate(22 356 172)"/><ellipse cx="238" cy="208" rx="7" ry="4" fill="#FBE9C2" transform="rotate(12 238 208)"/><ellipse cx="292" cy="192" rx="7" ry="4" fill="#FBE9C2" transform="rotate(-14 292 192)"/><ellipse cx="340" cy="206" rx="7" ry="4" fill="#FBE9C2" transform="rotate(8 340 206)"/>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section aria-labelledby="h-order">
+  <div class="wrap cols">
+    <div>
+      <h2 id="h-order">On the menu</h2>
+      <p class="sub">From the trailer's own Facebook page</p>
+      <ul class="menu">
+        <li>Smash burgers</li><li>Turkey burgers</li><li>Mushroom veggie burgers</li><li>Pooh's Puddin</li><li>Hill Tea</li>
+      </ul>
+      <p class="note">Prices and the full menu go here once the owner confirms them</p>
+    </div>
+    <div>
+      <h2 id="h-days">Where to find us</h2>
+      <p class="sub">From the trailer's own Facebook page</p>
+      <p class="days">Wednesdays, Fridays and Sundays at 6659 Oak Ridge Highway</p>
+      <p class="note">Opening times go here once the owner confirms them</p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="h-photos">
+  <div class="wrap">
+    <h2 id="h-photos">From the trailer</h2>
+    <ul class="photos">
+      <li class="ph"><span><b>Photo of the trailer</b>from the owner</span></li>
+      <li class="ph"><span><b>Photo of a smash burger</b>from the owner</span></li>
+      <li class="ph"><span><b>Photo of Pooh's Puddin</b>from the owner</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="call" aria-labelledby="h-call">
+  <div class="wrap grid">
+    <div>
+      <h2 id="h-call">Call in an order</h2>
+      <p class="num">(865) 755-0440</p>
+      <a class="btn quiet" href="tel:+18657550440"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Call Hamburger Hill</a>
+    </div>
+    <dl class="facts">
+      <div><dt>Find us at</dt><dd>6659 Oak Ridge Hwy, Knoxville, TN 37921</dd></div>
+      <div><dt>Directions</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Hamburger+Hill+Food+Truck+Knoxville&amp;query_place_id=ChIJAYW3r0o7XIgR8p6G33CTPH0">Open in Google Maps</a></dd></div>
+      <div><dt>On Facebook</dt><dd><a href="https://www.facebook.com/Hamburger-Hill-110387441192058/">Hamburger Hill on Facebook</a></dd></div>
+    </dl>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Sample page built for Hamburger Hill as a design proposal. It is not run by the business and takes no orders, bookings or payments.</p>
+    <details>
+      <summary>Details to confirm with the owner</summary>
+      <ul>
+        <li>Name, address and phone come from the Google Maps listing on 15 November 2026.</li>
+        <li>The menu items, the days and "Est. 2021" come from the trailer's own Facebook page, read on 15 November 2026. Prices, the full menu and opening times are not shown until the owner confirms them.</li>
+        <li>The black, cream and wood colours follow the trailer's own sign. The logo itself is not used here and would be added with the owner's permission.</li>
+        <li>The drawing and the three photo spaces are placeholders for the owner's own photos.</li>
+      </ul>
+    </details>
+  </div>
+  <a class="btn sticky" href="tel:+18657550440">Call in an order</a>
+</footer>
+<script>(function(){
+  var bar=document.querySelector('.sticky'),a=document.querySelector('.hero .btn'),b=document.querySelector('.call .btn');
+  if(!('IntersectionObserver' in window)||!bar||!a||!b)return;
+  var seen={a:true,b:false};
+  function upd(){bar.classList.toggle('show',!seen.a&&!seen.b)}
+  new IntersectionObserver(function(e){seen.a=e[0].isIntersecting;upd()}).observe(a);
+  new IntersectionObserver(function(e){seen.b=e[0].isIntersecting;upd()}).observe(b);
+})();</script>
+</body>
+</html>
