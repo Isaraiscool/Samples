@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Green Landscapes Lawn Service sample site</title>
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+/* Direction: tidy, dependable, neighbourly. World: fresh mowing stripes, a crisp edge, a red equipment trailer.
+   One accent (trailer red). One signature (the stripe band under the hero, once). */
+:root{
+  --page:#F6F8F3;--surface:#FFFFFF;--ink:#17261B;--ink-2:#45544A;--ink-3:#5A695F;
+  --line:rgba(23,38,27,.14);--red:#B3261E;--red-dark:#8F1D17;--green:#0B6B3A;
+  --display:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;
+  --body:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box}
+html{scroll-padding-bottom:6rem}
+body{margin:0;background:var(--page);color:var(--ink);font-family:var(--body);font-size:1.125rem;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-underline-offset:.2em;text-decoration-thickness:1px}
+a:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:4px}
+summary:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:4px}
+.wrap{max-width:70rem;margin:0 auto;padding:0 1.5rem}
+h1,h2,h3{font-family:var(--display);font-weight:600;margin:0;text-wrap:balance}
+p{margin:0}
+.skip{position:absolute;left:-999px;top:0;background:var(--surface);color:var(--ink);padding:.75rem 1rem;font-weight:600;z-index:30}
+.skip:focus{left:.5rem;top:.5rem}
+.sample{background:var(--surface);font-size:.875rem;color:var(--ink-2);padding:.5rem 0;border-bottom:1px solid var(--line)}
+
+.top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:0 1rem;padding-top:1.25rem;padding-bottom:1.25rem}
+.name{font-family:var(--display);font-weight:600;font-size:1.25rem}
+.top a{white-space:nowrap;font-weight:500;font-size:1rem;padding:.75rem 0;display:inline-block;font-variant-numeric:tabular-nums}
+
+.hero .grid{display:grid;gap:2rem;padding-top:1rem;padding-bottom:3rem}
+.hero h1{font-size:clamp(2.25rem,8.2vw,3.75rem);line-height:1.05;letter-spacing:-.02em;max-width:15ch}
+.lede{margin-top:1rem;font-size:1.25rem;color:var(--ink-2);max-width:26rem}
+.cta{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.5rem;margin-top:2rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:3.5rem;padding:.75rem 1.5rem;font-family:var(--body);font-weight:600;font-size:1.125rem;text-decoration:none;border-radius:.625rem;background:var(--red);color:#fff;border:1px solid var(--red)}
+.btn:hover{background:var(--red-dark);border-color:var(--red-dark)}
+.btn svg{width:1.125rem;height:1.125rem;flex:none}
+.btn.quiet{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.quiet:hover{background:var(--ink);color:var(--page)}
+.cta .btn{flex:1 1 100%}
+.textlink{font-weight:500;padding:.75rem 0;display:inline-block;font-variant-numeric:tabular-nums}
+.visual{position:relative}
+.plate{display:block;width:100%;height:auto;max-width:34rem;margin:0 auto}
+
+.band{height:12px;background:repeating-linear-gradient(90deg,#3F8F4A 0 24px,#57A861 24px 48px)}
+section{padding:3.5rem 0 0}
+.cols{display:grid;gap:2.5rem}
+@media (min-width:48rem){.cols{grid-template-columns:3fr 2fr;gap:4rem}}
+.days{font-family:var(--display);font-weight:600;font-size:1.5rem;line-height:1.25;margin-top:.75rem;max-width:22ch}
+h2{font-size:clamp(1.75rem,5vw,2.25rem);line-height:1.15;letter-spacing:-.01em}
+.order{display:grid;gap:2.5rem;margin-top:1.5rem}
+.sub{font-family:var(--body);font-size:1rem;font-weight:500;color:var(--ink-2);margin-top:1.5rem}
+.rank{list-style:none;margin:.75rem 0 0;padding:0;border-top:1px solid var(--ink)}
+.rank li{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+.rank h3{font-size:1.5rem}
+.rank span{color:var(--ink-2);font-size:1rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.menu{list-style:none;margin:.75rem 0 0;padding:0;border-top:1px solid var(--ink)}
+.menu li{font-family:var(--display);font-weight:600;font-size:1.375rem;padding:1rem 0;border-bottom:1px solid var(--line);break-inside:avoid}
+.note{margin-top:.75rem;font-size:.875rem;color:var(--ink-3)}
+
+.photos{list-style:none;margin:1.5rem 0 0;padding:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:.75rem}
+@media (max-width:23.99rem){.photos{grid-template-columns:minmax(0,1fr)}.ph:first-child{aspect-ratio:4/3}}
+.ph{aspect-ratio:4/3;border-radius:.75rem;background:var(--surface);border:1px dashed rgba(30,42,34,.4);display:grid;place-items:center;text-align:center;padding:1rem;font-size:.875rem;color:var(--ink-2)}
+.ph:first-child{grid-column:1/-1;aspect-ratio:16/9}
+.ph{overflow-wrap:anywhere}
+.ph b{display:block;font-weight:600;color:var(--ink);font-size:1rem}
+
+.call{margin-top:3.5rem;background:var(--surface);border-top:1px solid var(--line);padding:3rem 0}
+.call .grid{display:grid;gap:2rem}
+.num{font-family:var(--display);font-weight:600;font-size:clamp(2.25rem,10vw,3.5rem);line-height:1.05;letter-spacing:-.01em;margin:.5rem 0 1.5rem;font-variant-numeric:tabular-nums}
+.facts{margin:0}
+.facts div{padding:.75rem 0;border-top:1px solid var(--line)}
+.facts dt{font-size:.875rem;color:var(--ink-3)}
+.facts dd{margin:.25rem 0 0}
+.facts a{display:inline-block;padding:.5rem 0}
+
+footer{padding:2rem 0 3rem;font-size:.9375rem;color:var(--ink-2);border-top:1px solid var(--line)}
+details{margin-top:1rem;background:var(--surface);border:1px solid var(--line);border-radius:.75rem;padding:.25rem 1rem}
+summary{cursor:pointer;font-weight:600;color:var(--ink);padding:.75rem 0}
+details ul{margin:0;padding:0 0 .75rem 1.25rem}
+details li{margin-top:.25rem}
+.sticky{display:none}
+@media (max-width:47.99rem){
+  .js .sticky{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:.75rem;z-index:20;visibility:hidden;opacity:0;transform:translateY(120%)}
+  .js .sticky.show{visibility:visible;opacity:1;transform:none}
+  .js footer{padding-bottom:7rem}
+}
+@media (min-width:48rem){
+  .wrap{padding:0 2rem}
+  .hero .grid{grid-template-columns:5fr 6fr;align-items:center;gap:3rem;padding-top:2rem;padding-bottom:4rem}
+  .cta .btn{flex:0 0 auto}
+    .order{grid-template-columns:3fr 2fr;gap:4rem}
+  .photos{grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr}
+  .ph{aspect-ratio:auto;min-height:11rem}
+  .ph:first-child{grid-column:1;grid-row:1/3;aspect-ratio:auto}
+  .call .grid{grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+}
+/* Motion: one short entrance on load, colour changes on hover, a small press.
+   All of it is skipped for visitors who ask their device for reduced motion. */
+@media (prefers-reduced-motion:no-preference){
+  .btn{transition:background-color .15s var(--ease),color .15s var(--ease),border-color .15s var(--ease),transform .1s var(--ease)}
+  .btn:active{transform:scale(.98)}
+  .hero h1,.hero .lede,.hero .cta,.hero .visual{animation:enter .5s var(--ease) both}
+  .hero .lede{animation-delay:.06s}.hero .cta{animation-delay:.12s}.hero .visual{animation-delay:.18s}
+  .js .sticky{transition:transform .25s var(--ease),opacity .25s var(--ease),visibility .25s}
+}
+@keyframes enter{from{opacity:0;transform:translateY(.75rem)}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<aside class="sample" aria-label="Sample notice"><div class="wrap">Sample design. Not the official site</div></aside>
+
+<header class="hero">
+  <div class="wrap top">
+    <p class="name">Green Landscapes Lawn Service</p>
+    <a href="tel:+18656969706">(865) 696-9706</a>
+  </div>
+  <div class="wrap grid">
+    <div>
+      <h1>Mowing, edging and clean-up for Knoxville lawns</h1>
+      <p class="lede">A lawn service for homes in Knoxville, Tennessee</p>
+      <div class="cta">
+        <a class="btn" href="tel:+18656969706"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Call for a quote</a>
+        <a class="textlink" href="https://www.facebook.com/GreenLandscapesKnoxville/">Message on Facebook</a>
+      </div>
+    </div>
+    <div class="visual">
+      <svg class="plate" viewBox="0 0 560 500" aria-hidden="true" focusable="false">
+        <defs><clipPath id="lawn"><rect x="30" y="40" width="500" height="420" rx="28"/></clipPath></defs>
+        <rect x="30" y="40" width="500" height="420" rx="28" fill="#3F8F4A"/>
+        <g clip-path="url(#lawn)"><path d="M40 40 L-120 460 L-74 460 L86 40 Z" fill="#57A861"/><path d="M132 40 L-28 460 L18 460 L178 40 Z" fill="#57A861"/><path d="M224 40 L64 460 L110 460 L270 40 Z" fill="#57A861"/><path d="M316 40 L156 460 L202 460 L362 40 Z" fill="#57A861"/><path d="M408 40 L248 460 L294 460 L454 40 Z" fill="#57A861"/><path d="M500 40 L340 460 L386 460 L546 40 Z" fill="#57A861"/><path d="M592 40 L432 460 L478 460 L638 40 Z" fill="#57A861"/><path d="M684 40 L524 460 L570 460 L730 40 Z" fill="#57A861"/>
+          <path d="M360 40 H530 V230 Q470 238 430 200 Q380 150 360 40 Z" fill="#5A3A22"/>
+          <circle cx="418" cy="112" r="26" fill="#1F5A32"/><circle cx="462" cy="150" r="22" fill="#1F5A32"/><circle cx="486" cy="104" r="18" fill="#1F5A32"/><circle cx="440" cy="178" r="14" fill="#1F5A32"/><circle cx="396" cy="150" r="5" fill="#D9453C"/><circle cx="470" cy="190" r="5" fill="#D9453C"/><circle cx="500" cy="140" r="5" fill="#D9453C"/><circle cx="430" cy="84" r="5" fill="#D9453C"/><circle cx="476" cy="72" r="5" fill="#D9453C"/>
+        </g>
+        <rect x="30" y="40" width="500" height="420" rx="28" fill="none" stroke="#1F5A32" stroke-width="6"/>
+      </svg>
+    </div>
+  </div>
+  <div class="band" aria-hidden="true"></div>
+</header>
+
+<main id="main">
+<section aria-labelledby="h-order">
+  <div class="wrap cols">
+    <div>
+      <h2 id="h-order">What a mowing visit includes</h2>
+      <p class="sub">From the company's own Facebook page</p>
+      <ul class="menu">
+        <li>Mowing</li><li>Edging</li><li>Weed eating</li><li>Clean-up</li>
+      </ul>
+      <p class="note">Weed service is offered as an extra. Prices go here once the owner confirms them</p>
+    </div>
+    <div>
+      <h2 id="h-area">Where we work</h2>
+      <p class="sub">From the Google Maps listing and Facebook page</p>
+      <p class="days">Residential lawns in Knoxville, Tennessee</p>
+      <p class="note">The exact service area goes here once the owner confirms it</p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="h-photos">
+  <div class="wrap">
+    <h2 id="h-photos">Recent lawns</h2>
+    <ul class="photos">
+      <li class="ph"><span><b>Photo of a finished lawn</b>from the owner</span></li>
+      <li class="ph"><span><b>Photo of a clean edge</b>from the owner</span></li>
+      <li class="ph"><span><b>Photo of the crew's trailer</b>from the owner</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="call" aria-labelledby="h-call">
+  <div class="wrap grid">
+    <div>
+      <h2 id="h-call">Call for a quote</h2>
+      <p class="num">(865) 696-9706</p>
+      <a class="btn quiet" href="tel:+18656969706"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Call Green Landscapes</a>
+    </div>
+    <dl class="facts">
+      <div><dt>Based in</dt><dd>Knoxville, Tennessee</dd></div>
+      <div><dt>On Google Maps</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Green+Landscapes+Lawn+Service+Knoxville&amp;query_place_id=ChIJVVVQXg8wXIgR7ztnEV4LiXQ">Green Landscapes Lawn Service on Google Maps</a></dd></div>
+      <div><dt>On Facebook</dt><dd><a href="https://www.facebook.com/GreenLandscapesKnoxville/">Green Landscapes Lawn Service on Facebook</a></dd></div>
+    </dl>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Sample page built for Green Landscapes Lawn Service as a design proposal. It is not run by the business and takes no bookings or payments.</p>
+    <details>
+      <summary>Details to confirm with the owner</summary>
+      <ul>
+        <li>Name, phone and town come from the Google Maps listing on 15 November 2026.</li>
+        <li>What a mowing visit includes comes from a post on the company's own Facebook page, read on 15 November 2026. Prices, the service area, licence and insurance are not shown until the owner confirms them.</li>
+        <li>The drawing and the three photo spaces are placeholders for the owner's own photos.</li>
+      </ul>
+    </details>
+  </div>
+  <a class="btn sticky" href="tel:+18656969706">Call for a quote</a>
+</footer>
+<script>(function(){
+  var bar=document.querySelector('.sticky'),a=document.querySelector('.hero .btn'),b=document.querySelector('.call .btn');
+  if(!('IntersectionObserver' in window)||!bar||!a||!b)return;
+  var seen={a:true,b:false};
+  function upd(){bar.classList.toggle('show',!seen.a&&!seen.b)}
+  new IntersectionObserver(function(e){seen.a=e[0].isIntersecting;upd()}).observe(a);
+  new IntersectionObserver(function(e){seen.b=e[0].isIntersecting;upd()}).observe(b);
+})();</script>
+</body>
+</html>
