@@ -68,9 +68,11 @@ h2{font-size:clamp(1.75rem,5vw,2.25rem);line-height:1.15;letter-spacing:-.01em}
 @media (min-width:48rem){.cols{grid-template-columns:3fr 2fr;gap:4rem}}
 .note{margin-top:.75rem;font-size:.875rem;color:var(--ink-3)}
 
-.photos{list-style:none;margin:1.5rem 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.photos{list-style:none;margin:1.5rem 0 0;padding:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:.75rem}
+@media (max-width:23.99rem){.photos{grid-template-columns:minmax(0,1fr)}.ph:first-child{aspect-ratio:4/3}}
 .ph{aspect-ratio:4/3;border-radius:.75rem;background:var(--surface);border:1px dashed rgba(30,42,34,.4);display:grid;place-items:center;text-align:center;padding:1rem;font-size:.875rem;color:var(--ink-2)}
 .ph:first-child{grid-column:1/-1;aspect-ratio:16/9}
+.ph{overflow-wrap:anywhere}
 .ph b{display:block;font-weight:600;color:var(--ink);font-size:1rem}
 
 .call{margin-top:3.5rem;background:var(--surface);border-top:1px solid var(--line);padding:3rem 0}
