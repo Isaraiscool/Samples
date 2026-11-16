@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Chile Verde Mexican &amp; Taco sample site</title>
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+/* Direction: proud, generous, a little surprising (a taco truck people come to for burgers). World: the black truck with its pink and lime wrap. One accent (wrap pink). One signature (the three-stripe wrap band, once). */
+:root{
+  --page:#F7F8F1;--surface:#FFFFFF;--ink:#16160F;--ink-2:#45463A;--ink-3:#5B5C4E;
+  --line:rgba(22,22,15,.14);--red:#C2185B;--red-dark:#9A1248;--green:#0B6B3A;
+  --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --body:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box}
+html{scroll-padding-bottom:6rem}
+body{margin:0;background:var(--page);color:var(--ink);font-family:var(--body);font-size:1.125rem;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-underline-offset:.2em;text-decoration-thickness:1px}
+a:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:4px}
+summary:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:4px}
+.wrap{max-width:70rem;margin:0 auto;padding:0 1.5rem}
+h1,h2,h3{font-family:var(--display);font-weight:600;margin:0;text-wrap:balance}
+p{margin:0}
+.skip{position:absolute;left:-999px;top:0;background:var(--surface);color:var(--ink);padding:.75rem 1rem;font-weight:600;z-index:30}
+.skip:focus{left:.5rem;top:.5rem}
+.sample{background:var(--surface);font-size:.875rem;color:var(--ink-2);padding:.5rem 0;border-bottom:1px solid var(--line)}
+
+.top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:0 1rem;padding-top:1.25rem;padding-bottom:1.25rem}
+.name{font-family:var(--display);font-weight:600;font-size:1.25rem}
+.top a{white-space:nowrap;font-weight:500;font-size:1rem;padding:.75rem 0;display:inline-block;font-variant-numeric:tabular-nums}
+
+.hero .grid{display:grid;gap:2rem;padding-top:1rem;padding-bottom:3rem}
+.hero h1{font-size:clamp(2.25rem,8.2vw,3.75rem);line-height:1.05;letter-spacing:-.02em;max-width:15ch}
+.lede{margin-top:1rem;font-size:1.25rem;color:var(--ink-2);max-width:26rem}
+.cta{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.5rem;margin-top:2rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:3.5rem;padding:.75rem 1.5rem;font-family:var(--body);font-weight:600;font-size:1.125rem;text-decoration:none;border-radius:.625rem;background:var(--red);color:#fff;border:1px solid var(--red)}
+.btn:hover{background:var(--red-dark);border-color:var(--red-dark)}
+.btn svg{width:1.125rem;height:1.125rem;flex:none}
+.btn.quiet{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.quiet:hover{background:var(--ink);color:var(--page)}
+.cta .btn{flex:1 1 100%}
+.textlink{font-weight:500;padding:.75rem 0;display:inline-block;font-variant-numeric:tabular-nums}
+.visual{position:relative}
+.plate{display:block;width:100%;height:auto;max-width:34rem;margin:0 auto}
+
+.band{height:12px;background:linear-gradient(#A6D93B 0 4px,#16160F 4px 8px,#E8408C 8px 12px)}
+section{padding:3.5rem 0 0}
+.cols{display:grid;gap:2.5rem}
+@media (min-width:48rem){.cols{grid-template-columns:3fr 2fr;gap:4rem}}
+.days{font-family:var(--display);font-weight:600;font-size:1.5rem;line-height:1.25;margin-top:.75rem;max-width:22ch}
+h2{font-size:clamp(1.75rem,5vw,2.25rem);line-height:1.15;letter-spacing:-.01em}
+.order{display:grid;gap:2.5rem;margin-top:1.5rem}
+.sub{font-family:var(--body);font-size:1rem;font-weight:500;color:var(--ink-2);margin-top:1.5rem}
+.rank{list-style:none;margin:.75rem 0 0;padding:0;border-top:1px solid var(--ink)}
+.rank li{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+.rank h3{font-size:1.5rem}
+.rank span{color:var(--ink-2);font-size:1rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.menu{list-style:none;margin:.75rem 0 0;padding:0;border-top:1px solid var(--ink)}
+.menu li{font-family:var(--display);font-weight:600;font-size:1.375rem;padding:1rem 0;border-bottom:1px solid var(--line);break-inside:avoid}
+.note{margin-top:.75rem;font-size:.875rem;color:var(--ink-3)}
+
+.photos{list-style:none;margin:1.5rem 0 0;padding:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:.75rem}
+@media (max-width:23.99rem){.photos{grid-template-columns:minmax(0,1fr)}.ph:first-child{aspect-ratio:4/3}}
+.ph{aspect-ratio:4/3;border-radius:.75rem;background:var(--surface);border:1px dashed rgba(30,42,34,.4);display:grid;place-items:center;text-align:center;padding:1rem;font-size:.875rem;color:var(--ink-2)}
+.ph:first-child{grid-column:1/-1;aspect-ratio:16/9}
+.ph{overflow-wrap:anywhere}
+.ph b{display:block;font-weight:600;color:var(--ink);font-size:1rem}
+
+.call{margin-top:3.5rem;background:var(--surface);border-top:1px solid var(--line);padding:3rem 0}
+.call .grid{display:grid;gap:2rem}
+.num{font-family:var(--display);font-weight:600;font-size:clamp(2.25rem,10vw,3.5rem);line-height:1.05;letter-spacing:-.01em;margin:.5rem 0 1.5rem;font-variant-numeric:tabular-nums}
+.facts{margin:0}
+.facts div{padding:.75rem 0;border-top:1px solid var(--line)}
+.facts dt{font-size:.875rem;color:var(--ink-3)}
+.facts dd{margin:.25rem 0 0}
+.facts a{display:inline-block;padding:.5rem 0}
+
+footer{padding:2rem 0 3rem;font-size:.9375rem;color:var(--ink-2);border-top:1px solid var(--line)}
+details{margin-top:1rem;background:var(--surface);border:1px solid var(--line);border-radius:.75rem;padding:.25rem 1rem}
+summary{cursor:pointer;font-weight:600;color:var(--ink);padding:.75rem 0}
+details ul{margin:0;padding:0 0 .75rem 1.25rem}
+details li{margin-top:.25rem}
+.sticky{display:none}
+@media (max-width:47.99rem){
+  .js .sticky{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:.75rem;z-index:20;visibility:hidden;opacity:0;transform:translateY(120%)}
+  .js .sticky.show{visibility:visible;opacity:1;transform:none}
+  .js footer{padding-bottom:7rem}
+}
+@media (min-width:48rem){
+  .wrap{padding:0 2rem}
+  .hero .grid{grid-template-columns:5fr 6fr;align-items:center;gap:3rem;padding-top:2rem;padding-bottom:4rem}
+  .cta .btn{flex:0 0 auto}
+    .order{grid-template-columns:3fr 2fr;gap:4rem}
+  .photos{grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr}
+  .ph{aspect-ratio:auto;min-height:11rem}
+  .ph:first-child{grid-column:1;grid-row:1/3;aspect-ratio:auto}
+  .call .grid{grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+}
+/* Motion: one short entrance on load, colour changes on hover, a small press.
+   All of it is skipped for visitors who ask their device for reduced motion. */
+@media (prefers-reduced-motion:no-preference){
+  .btn{transition:background-color .15s var(--ease),color .15s var(--ease),border-color .15s var(--ease),transform .1s var(--ease)}
+  .btn:active{transform:scale(.98)}
+  .hero h1,.hero .lede,.hero .cta,.hero .visual{animation:enter .5s var(--ease) both}
+  .hero .lede{animation-delay:.06s}.hero .cta{animation-delay:.12s}.hero .visual{animation-delay:.18s}
+  .js .sticky{transition:transform .25s var(--ease),opacity .25s var(--ease),visibility .25s}
+}
+@keyframes enter{from{opacity:0;transform:translateY(.75rem)}}
+.facts a{overflow-wrap:anywhere}</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<aside class="sample" aria-label="Sample notice"><div class="wrap">Sample design. Not the official site</div></aside>
+
+<header class="hero">
+  <div class="wrap top">
+    <p class="name">Chile Verde Mexican &amp; Taco</p>
+    <a href="tel:+19013057525">(901) 305-7525</a>
+  </div>
+  <div class="wrap grid">
+    <div>
+      <h1>Burgers, tacos and flan on Park Avenue</h1>
+      <p class="lede">Chile Verde Mexican &amp; Taco, a food truck in Memphis, Tennessee</p>
+      <div class="cta">
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Chile+Verde+Mexican+Taco+Memphis&amp;query_place_id=ChIJWQ2zOViFf4gRIpsGvy-0ZaQ"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Get directions</a>
+        <a class="textlink" href="tel:+19013057525">Call (901) 305-7525</a>
+      </div>
+    </div>
+    <div class="visual">
+      <svg class="plate" viewBox="0 0 560 500" aria-hidden="true" focusable="false">
+        <rect x="0" y="404" width="560" height="6" rx="3" fill="#C9CBBC"/>
+        <rect x="52" y="150" width="372" height="216" rx="14" fill="#16160F"/>
+        <path d="M424 214 h58 q16 0 24 14 l26 46 q6 10 6 22 v70 h-114 z" fill="#16160F"/>
+        <path d="M440 232 h40 q8 0 12 7 l20 35 h-72 z" fill="#CFE6EE"/>
+        <path d="M52 300 q120 -70 240 -22 t132 -34 v52 q-70 44 -150 14 t-222 34 z" fill="#E8408C"/>
+        <path d="M52 334 q130 -56 232 -18 t140 -26 v26 q-70 40 -150 16 t-222 30 z" fill="#A6D93B"/>
+        <rect x="120" y="186" width="190" height="84" rx="8" fill="#FBF7EA"/>
+        <rect x="120" y="262" width="190" height="10" rx="3" fill="#8D8F80"/>
+        <path d="M104 186 h222 l16 -34 h-254 z" fill="#A6D93B"/>
+        <path d="M104 186 h222" stroke="#16160F" stroke-width="3"/>
+        <circle cx="170" cy="232" r="13" fill="#D9A066"/><path d="M152 262 q18 -26 36 0 z" fill="#C2185B"/>
+        <g transform="translate(330 250) rotate(-24)"><path d="M0 0 Q30 -26 78 -14 Q104 -6 112 14 Q84 6 60 14 Q26 26 0 0 Z" fill="#4E9B2F"/><path d="M2 -2 q-12 -2 -16 -14" fill="none" stroke="#2F6B1C" stroke-width="6" stroke-linecap="round"/><path d="M16 -4 Q48 -14 92 2" fill="none" stroke="#7CC255" stroke-width="3" stroke-linecap="round"/></g>
+        <rect x="82" y="138" width="8" height="16" fill="#2A2A20"/>
+        <rect x="40" y="356" width="506" height="16" rx="6" fill="#2A2A20"/>
+        <circle cx="150" cy="384" r="34" fill="#16160F"/><circle cx="150" cy="384" r="14" fill="#C9CBBC"/>
+        <circle cx="448" cy="384" r="34" fill="#16160F"/><circle cx="448" cy="384" r="14" fill="#C9CBBC"/>
+        <rect x="524" y="318" width="16" height="12" rx="3" fill="#F7C531"/>
+        <g transform="translate(26 70)">
+          <path d="M0 44 Q0 0 60 0 Q120 0 120 44 Z" fill="#D9963A"/>
+          <rect x="-4" y="46" width="128" height="10" rx="5" fill="#5BB450"/>
+          <rect x="0" y="58" width="120" height="16" rx="6" fill="#5A2E1B"/>
+          <path d="M-2 58 h124 l-14 12 -14 -10 -14 10 -14 -10 -14 10 -14 -10 -14 10 -14 -10 z" fill="#F7C531"/>
+          <path d="M0 76 h120 q0 22 -22 22 h-76 q-22 0 -22 -22 z" fill="#D9963A"/>
+          <circle cx="36" cy="18" r="3" fill="#FBF7EA"/><circle cx="62" cy="12" r="3" fill="#FBF7EA"/><circle cx="88" cy="20" r="3" fill="#FBF7EA"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div class="band" aria-hidden="true"></div>
+</header>
+
+<main id="main">
+<section aria-labelledby="h-order">
+  <div class="wrap cols">
+    <div>
+      <h2 id="h-order">What they serve</h2>
+      <p class="sub">Seen on their own Facebook page</p>
+      <ul class="menu"><li>Burgers</li><li>Tacos</li><li>Flan, fresa flan and chocoflan</li></ul>
+      <p class="note">The full menu and prices are left off this sample until the owner confirms them</p>
+    </div>
+    <div>
+      <h2 id="h-side">Opening times</h2>
+      <p class="sub">Not shown yet</p>
+      <p class="days">Call to check today's hours</p>
+      <p class="note">Their page has posted different opening times on different days, so hours stay off this sample until the owner confirms them</p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="h-photos">
+  <div class="wrap">
+    <h2 id="h-photos">From the truck</h2>
+    <ul class="photos"><li class="ph"><span><b>The truck on Park Avenue</b>from the owner</span></li><li class="ph"><span><b>A burger</b>from the owner</span></li><li class="ph"><span><b>Tacos</b>from the owner</span></li></ul>
+  </div>
+</section>
+
+<section class="call" aria-labelledby="h-call">
+  <div class="wrap grid">
+    <div>
+      <h2 id="h-call">Call the truck</h2>
+      <p class="num">(901) 305-7525</p>
+      <a class="btn quiet" href="tel:+19013057525"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Call the truck</a>
+    </div>
+    <dl class="facts"><div><dt>Find us at</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Chile+Verde+Mexican+Taco+Memphis&amp;query_place_id=ChIJWQ2zOViFf4gRIpsGvy-0ZaQ">4971 Park Ave, Memphis, TN 38117</a></dd></div><div><dt>Facebook</dt><dd><a href="https://www.facebook.com/chileverdetacotruck">facebook.com/chileverdetacotruck</a></dd></div></dl>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Sample page built for Chile Verde Mexican &amp; Taco as a design proposal. It is not run by the business and takes no orders, bookings or payments.</p>
+    <details>
+      <summary>Details to confirm with the owner</summary>
+      <ul><li>The full menu and prices</li><li>Opening days and hours</li><li>Whether the truck is always at 4971 Park Ave</li><li>Photos: the owner's own, used with permission</li><li>Address and phone number are from the public Google listing and their Facebook page, read 16 Nov 2026</li></ul>
+    </details>
+  </div>
+  <a class="btn sticky" href="https://www.google.com/maps/search/?api=1&amp;query=Chile+Verde+Mexican+Taco+Memphis&amp;query_place_id=ChIJWQ2zOViFf4gRIpsGvy-0ZaQ">Get directions</a>
+</footer>
+<script>(function(){
+  var bar=document.querySelector('.sticky'),a=document.querySelector('.hero .btn'),b=document.querySelector('.call .btn');
+  if(!('IntersectionObserver' in window)||!bar||!a||!b)return;
+  var seen={a:true,b:false};
+  function upd(){bar.classList.toggle('show',!seen.a&&!seen.b)}
+  new IntersectionObserver(function(e){seen.a=e[0].isIntersecting;upd()}).observe(a);
+  new IntersectionObserver(function(e){seen.b=e[0].isIntersecting;upd()}).observe(b);
+})();</script>
+</body>
+</html>
