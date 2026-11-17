@@ -1,0 +1,17 @@
+@import "tailwindcss";
+@theme {
+  --color-ink: #15120F;
+  --color-ink-2: #463F38;
+  --color-ink-3: #5C544B;
+  --color-page: #FAF6EE;
+  --color-cream: #FAF6EE;
+  --color-cream-2: #D6CBB9;
+  --color-marigold: #F7C531;
+  --color-line: rgba(21,18,15,.16);
+  --font-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --font-sans: "Figtree", "Helvetica Neue", Arial, sans-serif;
+}
+html { scroll-padding-top: 1rem; }
+body { margin: 0; background: var(--color-page); color: var(--color-ink); font-family: var(--font-sans); font-size: 1.125rem; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+.flag { transform-box: fill-box; transform-origin: 50% 0%; }
+.picado { border-top: 2px solid #D6CBB9; background: repeating-linear-gradient(90deg,#E8408C 0 40px,transparent 40px 46px,#19A7A0 46px 86px,transparent 86px 92px,#F7C531 92px 132px,transparent 132px 138px,#5BB450 138px 178px,transparent 178px 184px,#8E5BD0 184px 224px,transparent 224px 230px); -webkit-mask: radial-gradient(7px at 50% 100%,transparent 96%,#000) 0 0/23px 100% repeat-x; mask: radial-gradient(7px at 50% 100%,transparent 96%,#000) 0 0/23px 100% repeat-x; }
