@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Ground Effects Lawn and Landscaping sample site</title>
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600&amp;family=Public+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+/* Direction: steady, hands-on, proud of a clean edge. World: fresh black mulch, a lined rock border and striped grass. One accent (mower yellow). One signature (the "Since 2001" line by the name, once). */
+:root{
+  --page:#F3F5EE;--surface:#FFFFFF;--ink:#16211A;--ink-2:#414C44;--ink-3:#566158;
+  --line:rgba(26,21,18,.16);--red:#F2C94C;--red-dark:#FFDB73;--green:#0B6B3A;--cream:#F3F5EE;--cream-2:#C9D2C6;
+  --display:"Bitter",Rockwell,Georgia,serif;
+  --body:"Public Sans","Helvetica Neue",Arial,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box}
+html{scroll-padding-bottom:6rem}
+body{margin:0;background:var(--page);color:var(--ink);font-family:var(--body);font-size:1.125rem;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-underline-offset:.2em;text-decoration-thickness:1px}
+a:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:4px}
+summary:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:4px}
+.wrap{max-width:70rem;margin:0 auto;padding:0 1.5rem}
+h1,h2,h3{font-family:var(--display);font-weight:600;margin:0;text-wrap:balance}
+p{margin:0}
+.skip{position:absolute;left:-999px;top:0;background:var(--surface);color:var(--ink);padding:.75rem 1rem;font-weight:600;z-index:30}
+.skip:focus{left:.5rem;top:.5rem}
+.sample{background:var(--surface);font-size:.875rem;color:var(--ink-2);padding:.5rem 0;border-bottom:1px solid var(--line)}
+
+.top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:0 1rem;padding-top:1.25rem;padding-bottom:1.25rem}
+.name{font-family:var(--display);font-weight:600;font-size:1.25rem}
+.top a{white-space:nowrap;font-weight:500;font-size:1rem;padding:.75rem 0;display:inline-block;font-variant-numeric:tabular-nums}
+
+.hero{background:var(--ink);color:var(--cream)}
+.hero a:focus-visible{outline-color:var(--cream)}
+.name{white-space:normal}
+.est{font-size:.875rem;color:var(--cream-2);margin-left:.5rem;font-family:var(--body);font-weight:400}
+.hero .grid{display:grid;gap:2rem;padding-top:1rem;padding-bottom:3.5rem}
+.hero h1{font-size:clamp(2.5rem,9vw,4.25rem);line-height:1.02;letter-spacing:-.015em;max-width:15ch}
+.lede{margin-top:1rem;font-size:1.25rem;color:var(--cream-2);max-width:26rem}
+.cta{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.5rem;margin-top:2rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:3.5rem;padding:.75rem 1.5rem;font-family:var(--body);font-weight:600;font-size:1.125rem;text-decoration:none;border-radius:.625rem;background:var(--red);color:var(--ink);border:1px solid var(--red)}
+.btn:hover{background:var(--red-dark);border-color:var(--red-dark)}
+.btn svg{width:1.125rem;height:1.125rem;flex:none}
+.btn.quiet{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.btn.quiet:hover{background:#2C3A30;border-color:#2C3A30}
+.cta .btn{flex:1 1 100%}
+.textlink{font-weight:500;padding:.75rem 0;display:inline-block;font-variant-numeric:tabular-nums}
+.visual{position:relative}
+.plate{display:block;width:100%;height:auto;max-width:34rem;margin:0 auto}
+
+section{padding:3.5rem 0 0}
+h2{font-size:clamp(1.75rem,5vw,2.25rem);line-height:1.15;letter-spacing:-.01em}
+.order{display:grid;gap:2.5rem;margin-top:1.5rem}
+.sub{font-family:var(--body);font-size:1rem;font-weight:500;color:var(--ink-2);margin-top:1.5rem}
+.rank{list-style:none;margin:.75rem 0 0;padding:0;border-top:1px solid var(--ink)}
+.rank li{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+.rank h3{font-size:1.5rem}
+.rank span{color:var(--ink-2);font-size:1rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.menu{list-style:none;margin:.75rem 0 0;padding:0;border-top:1px solid var(--ink)}
+.menu li{font-family:var(--display);font-weight:600;font-size:1.375rem;padding:1rem 0;border-bottom:1px solid var(--line);break-inside:avoid}
+.days{font-family:var(--display);font-weight:600;font-size:1.5rem;line-height:1.25;margin-top:.75rem;max-width:22ch}
+.cols{display:grid;gap:2.5rem;margin-top:0}
+@media (min-width:48rem){.cols{grid-template-columns:3fr 2fr;gap:4rem}}
+.note{margin-top:.75rem;font-size:.875rem;color:var(--ink-3)}
+
+.photos{list-style:none;margin:1.5rem 0 0;padding:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:.75rem}
+@media (max-width:23.99rem){.photos{grid-template-columns:minmax(0,1fr)}.ph:first-child{aspect-ratio:4/3}}
+.ph{aspect-ratio:4/3;border-radius:.75rem;background:var(--surface);border:1px dashed rgba(30,42,34,.4);display:grid;place-items:center;text-align:center;padding:1rem;font-size:.875rem;color:var(--ink-2)}
+.ph:first-child{grid-column:1/-1;aspect-ratio:16/9}
+.ph{overflow-wrap:anywhere}
+.ph b{display:block;font-weight:600;color:var(--ink);font-size:1rem}
+
+.call{margin-top:3.5rem;background:var(--surface);border-top:1px solid var(--line);padding:3rem 0}
+.call .grid{display:grid;gap:2rem}
+.num{font-family:var(--display);font-weight:600;font-size:clamp(2.25rem,10vw,3.5rem);line-height:1.05;letter-spacing:-.01em;margin:.5rem 0 1.5rem;font-variant-numeric:tabular-nums}
+.facts{margin:0}
+.facts div{padding:.75rem 0;border-top:1px solid var(--line)}
+.facts dt{font-size:.875rem;color:var(--ink-3)}
+.facts dd{margin:.25rem 0 0}
+.facts a{display:inline-block;padding:.5rem 0}
+
+footer{padding:2rem 0 3rem;font-size:.9375rem;color:var(--ink-2);border-top:1px solid var(--line)}
+details{margin-top:1rem;background:var(--surface);border:1px solid var(--line);border-radius:.75rem;padding:.25rem 1rem}
+summary{cursor:pointer;font-weight:600;color:var(--ink);padding:.75rem 0}
+details ul{margin:0;padding:0 0 .75rem 1.25rem}
+details li{margin-top:.25rem}
+.sticky{display:none}
+@media (max-width:47.99rem){
+  .js .sticky{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:.75rem;z-index:20;visibility:hidden;opacity:0;transform:translateY(120%)}
+  .js .sticky.show{visibility:visible;opacity:1;transform:none}
+  .js footer{padding-bottom:7rem}
+}
+@media (min-width:48rem){
+  .wrap{padding:0 2rem}
+  .hero .grid{grid-template-columns:5fr 6fr;align-items:center;gap:3rem;padding-top:2rem;padding-bottom:4rem}
+  .cta .btn{flex:0 0 auto}
+    .order{grid-template-columns:3fr 2fr;gap:4rem}
+  .photos{grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr}
+  .ph{aspect-ratio:auto;min-height:11rem}
+  .ph:first-child{grid-column:1;grid-row:1/3;aspect-ratio:auto}
+  .call .grid{grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+}
+/* Motion: one short entrance on load, colour changes on hover, a small press.
+   All of it is skipped for visitors who ask their device for reduced motion. */
+@media (prefers-reduced-motion:no-preference){
+  .btn{transition:background-color .15s var(--ease),color .15s var(--ease),border-color .15s var(--ease),transform .1s var(--ease)}
+  .btn:active{transform:scale(.98)}
+  .hero h1,.hero .lede,.hero .cta,.hero .visual{animation:enter .5s var(--ease) both}
+  .hero .lede{animation-delay:.06s}.hero .cta{animation-delay:.12s}.hero .visual{animation-delay:.18s}
+  .js .sticky{transition:transform .25s var(--ease),opacity .25s var(--ease),visibility .25s}
+}
+@keyframes enter{from{opacity:0;transform:translateY(.75rem)}}
+
+.sticky{border-color:var(--ink)}
+.plate{border-radius:16px}
+.textlink svg{width:1rem;height:1rem;vertical-align:-.125rem;margin-right:.375rem}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<aside class="sample" aria-label="Sample notice"><div class="wrap">Sample design. Not the official site</div></aside>
+
+<header class="hero">
+  <div class="wrap top">
+    <p class="name">Ground Effects</p>
+    <a href="tel:+18656603727">(865) 660-3727</a>
+  </div>
+  <div class="wrap grid">
+    <div>
+      <h1>Lawns, mulch beds and shrubs kept sharp in Knoxville</h1>
+      <p class="lede">Ground Effects Lawn and Landscaping has worked on homes and businesses since 2001</p>
+      <div class="cta">
+        <a class="btn" href="tel:+18656603727"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Call for a quote</a>
+        <a class="textlink" href="https://www.facebook.com/GroundEffectsAdamEzell">See their work on Facebook</a>
+      </div>
+    </div>
+    <div class="visual">
+      <svg class="plate" viewBox="0 0 600 480" aria-hidden="true" focusable="false">
+        <defs><clipPath id="lawn"><rect x="0" y="0" width="600" height="300" rx="16"/></clipPath><clipPath id="all"><rect x="0" y="0" width="600" height="480" rx="16"/></clipPath></defs>
+        <g clip-path="url(#all)">
+        <g clip-path="url(#lawn)"><path d="M-40 0 L30 0 L-30 250 L-100 250 Z" fill="#4FA35A"/><path d="M30 0 L100 0 L40 250 L-30 250 Z" fill="#3E8E4A"/><path d="M100 0 L170 0 L110 250 L40 250 Z" fill="#4FA35A"/><path d="M170 0 L240 0 L180 250 L110 250 Z" fill="#3E8E4A"/><path d="M240 0 L310 0 L250 250 L180 250 Z" fill="#4FA35A"/><path d="M310 0 L380 0 L320 250 L250 250 Z" fill="#3E8E4A"/><path d="M380 0 L450 0 L390 250 L320 250 Z" fill="#4FA35A"/><path d="M450 0 L520 0 L460 250 L390 250 Z" fill="#3E8E4A"/><path d="M520 0 L590 0 L530 250 L460 250 Z" fill="#4FA35A"/><path d="M590 0 L660 0 L600 250 L530 250 Z" fill="#3E8E4A"/><path d="M660 0 L730 0 L670 250 L600 250 Z" fill="#4FA35A"/></g>
+        <path d="M0 310 Q300 262 600 320 L600 480 L0 480 Z" fill="#1C1815"/>
+        <rect x="60" y="350" width="8" height="3" rx="1.5" fill="#2A2420" transform="rotate(10 60 350)"/><rect x="110" y="380" width="8" height="3" rx="1.5" fill="#2A2420" transform="rotate(-20 110 380)"/><rect x="210" y="360" width="8" height="3" rx="1.5" fill="#2A2420" transform="rotate(30 210 360)"/><rect x="240" y="420" width="8" height="3" rx="1.5" fill="#2A2420" transform="rotate(-10 240 420)"/><rect x="390" y="430" width="8" height="3" rx="1.5" fill="#2A2420" transform="rotate(15 390 430)"/><rect x="520" y="440" width="8" height="3" rx="1.5" fill="#2A2420" transform="rotate(-25 520 440)"/><rect x="80" y="430" width="8" height="3" rx="1.5" fill="#2A2420" transform="rotate(5 80 430)"/><rect x="430" y="350" width="8" height="3" rx="1.5" fill="#2A2420" transform="rotate(40 430 350)"/><rect x="270" y="340" width="8" height="3" rx="1.5" fill="#2A2420" transform="rotate(-30 270 340)"/><rect x="560" y="380" width="8" height="3" rx="1.5" fill="#2A2420" transform="rotate(20 560 380)"/><ellipse cx="40" cy="300" rx="26" ry="16" fill="#B9B3A6"/><ellipse cx="92" cy="292" rx="22" ry="15" fill="#CFC9BC"/><ellipse cx="140" cy="288" rx="26" ry="15" fill="#A8A295"/><ellipse cx="192" cy="286" rx="22" ry="14" fill="#C4BEB1"/><ellipse cx="240" cy="286" rx="26" ry="15" fill="#B3AD9F"/><ellipse cx="292" cy="288" rx="22" ry="14" fill="#D2CCBF"/><ellipse cx="340" cy="290" rx="26" ry="15" fill="#A9A396"/><ellipse cx="392" cy="294" rx="22" ry="15" fill="#C8C2B5"/><ellipse cx="440" cy="298" rx="26" ry="16" fill="#B5AFA2"/><ellipse cx="492" cy="304" rx="22" ry="16" fill="#CCC6B9"/><ellipse cx="530" cy="310" rx="20" ry="15" fill="#AEA89B"/><path d="M150 410 Q128 330 96 282" fill="none" stroke="#7E8F55" stroke-width="3" stroke-linecap="round"/><ellipse cx="96" cy="270" rx="9" ry="26" fill="#E9DDC2" transform="rotate(-27 96 270)"/><path d="M150 410 Q138 330 120 268" fill="none" stroke="#7E8F55" stroke-width="3" stroke-linecap="round"/><ellipse cx="120" cy="256" rx="9" ry="26" fill="#E9DDC2" transform="rotate(-15 120 256)"/><path d="M150 410 Q147 330 142 255" fill="none" stroke="#7E8F55" stroke-width="3" stroke-linecap="round"/><ellipse cx="142" cy="243" rx="9" ry="26" fill="#E9DDC2" transform="rotate(-4 142 243)"/><path d="M150 410 Q156 330 164 258" fill="none" stroke="#7E8F55" stroke-width="3" stroke-linecap="round"/><ellipse cx="164" cy="246" rx="9" ry="26" fill="#E9DDC2" transform="rotate(7 164 246)"/><path d="M150 410 Q164 330 186 272" fill="none" stroke="#7E8F55" stroke-width="3" stroke-linecap="round"/><ellipse cx="186" cy="260" rx="9" ry="26" fill="#E9DDC2" transform="rotate(18 186 260)"/><path d="M150 410 Q173 330 208 285" fill="none" stroke="#7E8F55" stroke-width="3" stroke-linecap="round"/><ellipse cx="208" cy="273" rx="9" ry="26" fill="#E9DDC2" transform="rotate(29 208 273)"/><g><circle cx="330" cy="372" r="46" fill="#2F6B3A"/><circle cx="296" cy="388" r="34" fill="#28603A"/><circle cx="364" cy="390" r="34" fill="#357742"/><circle cx="320" cy="356" r="10" fill="#3F8A4C"/><circle cx="352" cy="370" r="8" fill="#3F8A4C"/></g><g><circle cx="456" cy="392" r="36" fill="#2A643A"/><circle cx="486" cy="404" r="26" fill="#317040"/><circle cx="430" cy="406" r="24" fill="#28603A"/></g>
+        </g>
+      </svg>
+    </div>
+  </div>
+  
+</header>
+
+<main id="main">
+<section aria-labelledby="h-order">
+  <div class="wrap cols">
+    <div>
+      <h2 id="h-order">Recent work</h2>
+      <p class="sub">From their own Facebook posts</p>
+      <ul class="menu"><li>Lawn mowing</li><li>Fresh black mulch</li><li>Rock borders realigned</li><li>Weeds pulled</li><li>Shrubs pruned</li><li>Pampas grass cut back</li><li>Ball field cleanups</li></ul>
+      <p class="note">Prices and a full service list are left off this sample until the owner confirms them</p>
+    </div>
+    <div>
+      <h2 id="h-side">Who they work for</h2>
+      <p class="sub">From their Facebook page</p>
+      <p class="days">Homes and businesses, since 2001</p>
+      <p class="note">Service area, licence and insurance are left off this sample until the owner confirms them</p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="h-photos">
+  <div class="wrap">
+    <h2 id="h-photos">Recent yards</h2>
+    <ul class="photos"><li class="ph"><span><b>A freshly striped lawn</b>from the owner</span></li><li class="ph"><span><b>A mulch bed</b>from the owner</span></li><li class="ph"><span><b>A rock border</b>from the owner</span></li></ul>
+  </div>
+</section>
+
+<section class="call" aria-labelledby="h-call">
+  <div class="wrap grid">
+    <div>
+      <h2 id="h-call">Ask for a quote</h2>
+      <p class="num">(865) 660-3727</p>
+      <a class="btn quiet" href="tel:+18656603727"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Call Ground Effects</a>
+    </div>
+    <dl class="facts"><div><dt>Based in</dt><dd>Knoxville, Tennessee</dd></div><div><dt>Email</dt><dd><a href="mailto:groundeffectslawn@yahoo.com">groundeffectslawn@yahoo.com</a></dd></div><div><dt>Facebook</dt><dd><a href="https://www.facebook.com/GroundEffectsAdamEzell">Ground Effects on Facebook</a></dd></div></dl>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Sample page built for Ground Effects Lawn and Landscaping as a design proposal. It is not run by the business and takes no orders, bookings or payments.</p>
+    <details>
+      <summary>Details to confirm with the owner</summary>
+      <ul><li>The full list of services and the area served</li><li>Prices or how quotes work</li><li>Licence and insurance details</li><li>Photos: the owner's own, used with permission</li><li>Phone, email and "since 2001" are from their Facebook page, read 17 Nov 2026</li></ul>
+    </details>
+  </div>
+  <a class="btn sticky" href="tel:+18656603727">Call for a quote</a>
+</footer>
+<script>(function(){
+  var bar=document.querySelector('.sticky'),a=document.querySelector('.hero .btn'),b=document.querySelector('.call .btn');
+  if(!('IntersectionObserver' in window)||!bar||!a||!b)return;
+  var seen={a:true,b:false};
+  function upd(){bar.classList.toggle('show',!seen.a&&!seen.b)}
+  new IntersectionObserver(function(e){seen.a=e[0].isIntersecting;upd()}).observe(a);
+  new IntersectionObserver(function(e){seen.b=e[0].isIntersecting;upd()}).observe(b);
+})();</script>
+</body>
+</html>

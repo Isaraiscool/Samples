@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Nacho's Mexican Food sample site</title>
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&amp;family=Karla:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+/* Direction: friendly, festive, at your event. World: tacos on a dark slate board, radish and lime, the green, white and red ribbon from their logo. One accent (logo green). One signature (the ribbon band, once). */
+:root{
+  --page:#F6F4EF;--surface:#FFFFFF;--ink:#232527;--ink-2:#46494C;--ink-3:#5A5D60;
+  --line:rgba(35,37,39,.14);--red:#1E7A3C;--red-dark:#16602F;--green:#0B6B3A;
+  --display:"Abril Fatface",Georgia,serif;
+  --body:"Karla","Helvetica Neue",Arial,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box}
+html{scroll-padding-bottom:6rem}
+body{margin:0;background:var(--page);color:var(--ink);font-family:var(--body);font-size:1.125rem;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-underline-offset:.2em;text-decoration-thickness:1px}
+a:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:4px}
+summary:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:4px}
+.wrap{max-width:70rem;margin:0 auto;padding:0 1.5rem}
+h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance}
+p{margin:0}
+.skip{position:absolute;left:-999px;top:0;background:var(--surface);color:var(--ink);padding:.75rem 1rem;font-weight:600;z-index:30}
+.skip:focus{left:.5rem;top:.5rem}
+.sample{background:var(--surface);font-size:.875rem;color:var(--ink-2);padding:.5rem 0;border-bottom:1px solid var(--line)}
+
+.top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:0 1rem;padding-top:1.25rem;padding-bottom:1.25rem}
+.name{font-family:var(--display);font-weight:400;font-size:1.25rem}
+.top a{white-space:nowrap;font-weight:500;font-size:1rem;padding:.75rem 0;display:inline-block;font-variant-numeric:tabular-nums}
+
+.hero .grid{display:grid;gap:2rem;padding-top:1rem;padding-bottom:3rem}
+.hero h1{font-size:clamp(2.25rem,8.2vw,3.75rem);line-height:1.05;letter-spacing:-.02em;max-width:15ch}
+.lede{margin-top:1rem;font-size:1.25rem;color:var(--ink-2);max-width:26rem}
+.cta{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.5rem;margin-top:2rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:3.5rem;padding:.75rem 1.5rem;font-family:var(--body);font-weight:600;font-size:1.125rem;text-decoration:none;border-radius:.625rem;background:var(--red);color:#fff;border:1px solid var(--red)}
+.btn:hover{background:var(--red-dark);border-color:var(--red-dark)}
+.btn svg{width:1.125rem;height:1.125rem;flex:none}
+.btn.quiet{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.quiet:hover{background:var(--ink);color:var(--page)}
+.cta .btn{flex:1 1 100%}
+.textlink{font-weight:500;padding:.75rem 0;display:inline-block;font-variant-numeric:tabular-nums}
+.visual{position:relative}
+.plate{display:block;width:100%;height:auto;max-width:34rem;margin:0 auto}
+
+.band{height:18px;background:linear-gradient(90deg,#1E7A3C 0 33.3%,#FFFFFF 33.3% 66.6%,#C8312B 66.6%);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+section{padding:3.5rem 0 0}
+.cols{display:grid;gap:2.5rem}
+@media (min-width:48rem){.cols{grid-template-columns:3fr 2fr;gap:4rem}}
+.days{font-family:var(--display);font-weight:400;font-size:1.5rem;line-height:1.25;margin-top:.75rem;max-width:22ch}
+h2{font-size:clamp(1.75rem,5vw,2.25rem);line-height:1.15;letter-spacing:-.01em}
+.order{display:grid;gap:2.5rem;margin-top:1.5rem}
+.sub{font-family:var(--body);font-size:1rem;font-weight:500;color:var(--ink-2);margin-top:1.5rem}
+.rank{list-style:none;margin:.75rem 0 0;padding:0;border-top:1px solid var(--ink)}
+.rank li{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+.rank h3{font-size:1.5rem}
+.rank span{color:var(--ink-2);font-size:1rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.menu{list-style:none;margin:.75rem 0 0;padding:0;border-top:1px solid var(--ink)}
+.menu li{font-family:var(--body);font-weight:600;font-size:1.375rem;padding:1rem 0;border-bottom:1px solid var(--line);break-inside:avoid}
+.note{margin-top:.75rem;font-size:.875rem;color:var(--ink-3)}
+
+.photos{list-style:none;margin:1.5rem 0 0;padding:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:.75rem}
+@media (max-width:23.99rem){.photos{grid-template-columns:minmax(0,1fr)}.ph:first-child{aspect-ratio:4/3}}
+.ph{aspect-ratio:4/3;border-radius:.75rem;background:var(--surface);border:1px dashed rgba(30,42,34,.4);display:grid;place-items:center;text-align:center;padding:1rem;font-size:.875rem;color:var(--ink-2)}
+.ph:first-child{grid-column:1/-1;aspect-ratio:16/9}
+.ph{overflow-wrap:anywhere}
+.ph b{display:block;font-weight:600;color:var(--ink);font-size:1rem}
+
+.call{margin-top:3.5rem;background:var(--surface);border-top:1px solid var(--line);padding:3rem 0}
+.call .grid{display:grid;gap:2rem}
+.num{font-family:var(--body);font-weight:600;font-size:clamp(2.25rem,10vw,3.5rem);line-height:1.05;letter-spacing:-.01em;margin:.5rem 0 1.5rem;font-variant-numeric:tabular-nums}
+.facts{margin:0}
+.facts div{padding:.75rem 0;border-top:1px solid var(--line)}
+.facts dt{font-size:.875rem;color:var(--ink-3)}
+.facts dd{margin:.25rem 0 0}
+.facts a{display:inline-block;padding:.5rem 0}
+
+footer{padding:2rem 0 3rem;font-size:.9375rem;color:var(--ink-2);border-top:1px solid var(--line)}
+details{margin-top:1rem;background:var(--surface);border:1px solid var(--line);border-radius:.75rem;padding:.25rem 1rem}
+summary{cursor:pointer;font-weight:600;color:var(--ink);padding:.75rem 0}
+details ul{margin:0;padding:0 0 .75rem 1.25rem}
+details li{margin-top:.25rem}
+.sticky{display:none}
+@media (max-width:47.99rem){
+  .js .sticky{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:.75rem;z-index:20;visibility:hidden;opacity:0;transform:translateY(120%)}
+  .js .sticky.show{visibility:visible;opacity:1;transform:none}
+  .js footer{padding-bottom:7rem}
+}
+@media (min-width:48rem){
+  .wrap{padding:0 2rem}
+  .hero .grid{grid-template-columns:5fr 6fr;align-items:center;gap:3rem;padding-top:2rem;padding-bottom:4rem}
+  .cta .btn{flex:0 0 auto}
+    .order{grid-template-columns:3fr 2fr;gap:4rem}
+  .photos{grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr}
+  .ph{aspect-ratio:auto;min-height:11rem}
+  .ph:first-child{grid-column:1;grid-row:1/3;aspect-ratio:auto}
+  .call .grid{grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+}
+/* Motion: one short entrance on load, colour changes on hover, a small press.
+   All of it is skipped for visitors who ask their device for reduced motion. */
+@media (prefers-reduced-motion:no-preference){
+  .btn{transition:background-color .15s var(--ease),color .15s var(--ease),border-color .15s var(--ease),transform .1s var(--ease)}
+  .btn:active{transform:scale(.98)}
+  .hero h1,.hero .lede,.hero .cta,.hero .visual{animation:enter .5s var(--ease) both}
+  .hero .lede{animation-delay:.06s}.hero .cta{animation-delay:.12s}.hero .visual{animation-delay:.18s}
+  .js .sticky{transition:transform .25s var(--ease),opacity .25s var(--ease),visibility .25s}
+}
+@keyframes enter{from{opacity:0;transform:translateY(.75rem)}}
+.facts a{overflow-wrap:anywhere}
+.hero h1{letter-spacing:0}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<aside class="sample" aria-label="Sample notice"><div class="wrap">Sample design. Not the official site</div></aside>
+
+<header class="hero">
+  <div class="wrap top">
+    <p class="name">Nacho&#8217;s Mexican Food</p>
+    <a href="tel:+12568430835">(256) 843-0835</a>
+  </div>
+  <div class="wrap grid">
+    <div>
+      <h1>Tacos from a food truck that comes to your event</h1>
+      <p class="lede">Nacho's Mexican Food Truck, serving Huntsville, Alabama and the towns around it</p>
+      <div class="cta">
+        <a class="btn" href="tel:+12568430835"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4"/></svg>Call to book the truck</a>
+        <a class="textlink" href="tel:+12568430835">Call (256) 843-0835</a>
+      </div>
+    </div>
+    <div class="visual">
+      <svg class="plate" viewBox="0 0 600 480" aria-hidden="true" focusable="false">
+        <rect x="20" y="40" width="560" height="400" rx="20" fill="#2E3133"/>
+        <g transform="translate(70 120)">
+          <path d="M0 150 A130 130 0 0 1 260 150 Z" fill="#E8C98A"/>
+          <path d="M14 150 A116 116 0 0 1 246 150 Z" fill="#8A4B2A"/>
+          <g fill="#F4F1E6"><rect x="60" y="92" width="14" height="14" rx="3"/><rect x="120" y="70" width="14" height="14" rx="3"/><rect x="170" y="96" width="14" height="14" rx="3"/><rect x="96" y="112" width="12" height="12" rx="3"/></g>
+          <g fill="#9BCB5E"><path d="M40 120 l18 -26 l6 30 z"/><path d="M150 104 l14 -30 l14 28 z"/><path d="M196 128 l22 -18 l-2 28 z"/></g>
+          <g fill="#7A3E8F"><rect x="80" y="126" width="34" height="8" rx="4"/><rect x="140" y="128" width="40" height="8" rx="4"/></g>
+          <path d="M70 84 q22 -30 50 -6 q-26 16 -50 6 z" fill="#5F9B3A"/><path d="M196 74 q24 -26 46 0 q-24 12 -46 0 z" fill="#5F9B3A"/>
+        </g>
+        <g transform="translate(270 170)">
+          <path d="M0 150 A130 130 0 0 1 260 150 Z" fill="#E8C98A"/>
+          <path d="M14 150 A116 116 0 0 1 246 150 Z" fill="#B5542C"/>
+          <g fill="#F4F1E6"><rect x="70" y="98" width="14" height="14" rx="3"/><rect x="130" y="76" width="14" height="14" rx="3"/><rect x="186" y="104" width="14" height="14" rx="3"/></g>
+          <g fill="#9BCB5E"><path d="M100 120 l18 -26 l6 30 z"/><path d="M160 110 l14 -30 l14 28 z"/></g>
+          <path d="M40 120 q30 -34 68 -4 q-34 18 -68 4 z" fill="#7FB04B"/>
+        </g>
+        <g transform="translate(470 92)"><circle r="48" fill="#F4F1E6"/><circle r="40" fill="#C2402B"/><circle cx="-12" cy="-8" r="4" fill="#F4A76A"/><circle cx="10" cy="6" r="3" fill="#F4A76A"/></g>
+        <g transform="translate(100 400)"><circle r="26" fill="#F7F3F4"/><circle r="26" fill="none" stroke="#D14A6A" stroke-width="5"/><circle cx="60" cy="8" r="22" fill="#F7F3F4"/><circle cx="60" cy="8" r="22" fill="none" stroke="#D14A6A" stroke-width="5"/></g>
+        <g transform="translate(470 392) rotate(-14)"><path d="M0 0 A40 40 0 0 1 80 0 Z" fill="#A9D25B" stroke="#EAF4D0" stroke-width="4"/><path d="M40 0 L40 -32 M40 0 L18 -27 M40 0 L62 -27" stroke="#EAF4D0" stroke-width="3" stroke-linecap="round"/></g>
+      </svg>
+    </div>
+  </div>
+  <div class="band" aria-hidden="true"></div>
+</header>
+
+<main id="main">
+<section aria-labelledby="h-order">
+  <div class="wrap cols">
+    <div>
+      <h2 id="h-order">Book the truck</h2>
+      <p class="sub">Events they mention on their Facebook page</p>
+      <ul class="menu"><li>Workplace lunches</li><li>School events</li><li>Fall festivals</li><li>Christmas parties</li></ul>
+      <p class="note">Menu, prices and booking terms are left off this sample until the owner confirms them</p>
+    </div>
+    <div>
+      <h2 id="h-side">Find the truck</h2>
+      <p class="sub">Address on their Facebook page</p>
+      <p class="days">5830 University Dr NW, Huntsville</p>
+      <p class="note">Opening days and hours are left off this sample until the owner confirms them</p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="h-photos">
+  <div class="wrap">
+    <h2 id="h-photos">From the truck</h2>
+    <ul class="photos"><li class="ph"><span><b>The truck</b>from the owner</span></li><li class="ph"><span><b>Tacos</b>from the owner</span></li><li class="ph"><span><b>At an event</b>from the owner</span></li></ul>
+  </div>
+</section>
+
+<section class="call" aria-labelledby="h-call">
+  <div class="wrap grid">
+    <div>
+      <h2 id="h-call">Call the truck</h2>
+      <p class="num">(256) 843-0835</p>
+      <a class="btn quiet" href="tel:+12568430835"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Call Nacho's</a>
+    </div>
+    <dl class="facts"><div><dt>Find us at</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Nachos+Mexican+Food+Truck+Huntsville+AL">5830 University Dr NW, Huntsville, AL 35806</a></dd></div><div><dt>Seating</dt><dd>Outdoor seating, as listed on their Facebook page</dd></div><div><dt>Facebook</dt><dd><a href="https://www.facebook.com/NachosMexicanFoodTruck">facebook.com/NachosMexicanFoodTruck</a></dd></div></dl>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Sample page built for Nacho's Mexican Food as a design proposal. It is not run by the business and takes no orders, bookings or payments.</p>
+    <details>
+      <summary>Details to confirm with the owner</summary>
+      <ul><li>The menu and prices</li><li>Opening days and hours</li><li>How event booking works and which areas they travel to</li><li>Photos: the owner's own, used with permission</li><li>Address and phone number are from the public Google listing and their Facebook page, read 17 Nov 2026</li></ul>
+    </details>
+  </div>
+  <a class="btn sticky" href="tel:+12568430835">Call to book the truck</a>
+</footer>
+<script>(function(){
+  var bar=document.querySelector('.sticky'),a=document.querySelector('.hero .btn'),b=document.querySelector('.call .btn');
+  if(!('IntersectionObserver' in window)||!bar||!a||!b)return;
+  var seen={a:true,b:false};
+  function upd(){bar.classList.toggle('show',!seen.a&&!seen.b)}
+  new IntersectionObserver(function(e){seen.a=e[0].isIntersecting;upd()}).observe(a);
+  new IntersectionObserver(function(e){seen.b=e[0].isIntersecting;upd()}).observe(b);
+})();</script>
+</body>
+</html>
