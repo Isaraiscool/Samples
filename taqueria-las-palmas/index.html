@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Taqueria las Palmas sample site</title>
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+/* Direction: warm night out, generous plates. World: two palm trees, a string of lights and a cream food trailer under the moon on Anderson Road. One accent (mango orange). One signature (the palm silhouettes, once). */
+:root{
+  --page:#F6F3EA;--surface:#FFFFFF;--ink:#0F2A1F;--ink-2:#3F5248;--ink-3:#53655C;
+  --line:rgba(26,21,18,.16);--red:#FFB347;--red-dark:#FFC46E;--green:#0B6B3A;--cream:#F6F3EA;--cream-2:#C9D3CC;
+  --display:"Rubik","Helvetica Neue",Arial,sans-serif;
+  --body:"Rubik","Helvetica Neue",Arial,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box}
+html{scroll-padding-bottom:6rem}
+body{margin:0;background:var(--page);color:var(--ink);font-family:var(--body);font-size:1.125rem;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-underline-offset:.2em;text-decoration-thickness:1px}
+a:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:4px}
+summary:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:4px}
+.wrap{max-width:70rem;margin:0 auto;padding:0 1.5rem}
+h1,h2,h3{font-family:var(--display);font-weight:600;margin:0;text-wrap:balance}
+p{margin:0}
+.skip{position:absolute;left:-999px;top:0;background:var(--surface);color:var(--ink);padding:.75rem 1rem;font-weight:600;z-index:30}
+.skip:focus{left:.5rem;top:.5rem}
+.sample{background:var(--surface);font-size:.875rem;color:var(--ink-2);padding:.5rem 0;border-bottom:1px solid var(--line)}
+
+.top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:0 1rem;padding-top:1.25rem;padding-bottom:1.25rem}
+.name{font-family:var(--display);font-weight:600;font-size:1.25rem}
+.top a{white-space:nowrap;font-weight:500;font-size:1rem;padding:.75rem 0;display:inline-block;font-variant-numeric:tabular-nums}
+
+.hero{background:var(--ink);color:var(--cream)}
+.hero a:focus-visible{outline-color:var(--cream)}
+.name{white-space:nowrap}
+.est{font-size:.875rem;color:var(--cream-2);margin-left:.5rem;font-family:var(--body);font-weight:400}
+.hero .grid{display:grid;gap:2rem;padding-top:1rem;padding-bottom:3.5rem}
+.hero h1{font-size:clamp(2.5rem,9vw,4.25rem);line-height:1.02;letter-spacing:-.015em;max-width:15ch}
+.lede{margin-top:1rem;font-size:1.25rem;color:var(--cream-2);max-width:26rem}
+.cta{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.5rem;margin-top:2rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:3.5rem;padding:.75rem 1.5rem;font-family:var(--body);font-weight:600;font-size:1.125rem;text-decoration:none;border-radius:.625rem;background:var(--red);color:var(--ink);border:1px solid var(--red)}
+.btn:hover{background:var(--red-dark);border-color:var(--red-dark)}
+.btn svg{width:1.125rem;height:1.125rem;flex:none}
+.btn.quiet{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.btn.quiet:hover{background:#1F4234;border-color:#1F4234}
+.cta .btn{flex:1 1 100%}
+.textlink{font-weight:500;padding:.75rem 0;display:inline-block;font-variant-numeric:tabular-nums}
+.visual{position:relative}
+.plate{display:block;width:100%;height:auto;max-width:34rem;margin:0 auto}
+
+section{padding:3.5rem 0 0}
+h2{font-size:clamp(1.75rem,5vw,2.25rem);line-height:1.15;letter-spacing:-.01em}
+.order{display:grid;gap:2.5rem;margin-top:1.5rem}
+.sub{font-family:var(--body);font-size:1rem;font-weight:500;color:var(--ink-2);margin-top:1.5rem}
+.rank{list-style:none;margin:.75rem 0 0;padding:0;border-top:1px solid var(--ink)}
+.rank li{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+.rank h3{font-size:1.5rem}
+.rank span{color:var(--ink-2);font-size:1rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.menu{list-style:none;margin:.75rem 0 0;padding:0;border-top:1px solid var(--ink)}
+.menu li{font-family:var(--display);font-weight:600;font-size:1.375rem;padding:1rem 0;border-bottom:1px solid var(--line);break-inside:avoid}
+.days{font-family:var(--display);font-weight:600;font-size:1.5rem;line-height:1.25;margin-top:.75rem;max-width:22ch}
+.cols{display:grid;gap:2.5rem;margin-top:0}
+@media (min-width:48rem){.cols{grid-template-columns:3fr 2fr;gap:4rem}}
+.note{margin-top:.75rem;font-size:.875rem;color:var(--ink-3)}
+
+.photos{list-style:none;margin:1.5rem 0 0;padding:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:.75rem}
+@media (max-width:23.99rem){.photos{grid-template-columns:minmax(0,1fr)}.ph:first-child{aspect-ratio:4/3}}
+.ph{aspect-ratio:4/3;border-radius:.75rem;background:var(--surface);border:1px dashed rgba(30,42,34,.4);display:grid;place-items:center;text-align:center;padding:1rem;font-size:.875rem;color:var(--ink-2)}
+.ph:first-child{grid-column:1/-1;aspect-ratio:16/9}
+.ph{overflow-wrap:anywhere}
+.ph b{display:block;font-weight:600;color:var(--ink);font-size:1rem}
+
+.call{margin-top:3.5rem;background:var(--surface);border-top:1px solid var(--line);padding:3rem 0}
+.call .grid{display:grid;gap:2rem}
+.num{font-family:var(--display);font-weight:600;font-size:clamp(2.25rem,10vw,3.5rem);line-height:1.05;letter-spacing:-.01em;margin:.5rem 0 1.5rem;font-variant-numeric:tabular-nums}
+.facts{margin:0}
+.facts div{padding:.75rem 0;border-top:1px solid var(--line)}
+.facts dt{font-size:.875rem;color:var(--ink-3)}
+.facts dd{margin:.25rem 0 0}
+.facts a{display:inline-block;padding:.5rem 0}
+
+footer{padding:2rem 0 3rem;font-size:.9375rem;color:var(--ink-2);border-top:1px solid var(--line)}
+details{margin-top:1rem;background:var(--surface);border:1px solid var(--line);border-radius:.75rem;padding:.25rem 1rem}
+summary{cursor:pointer;font-weight:600;color:var(--ink);padding:.75rem 0}
+details ul{margin:0;padding:0 0 .75rem 1.25rem}
+details li{margin-top:.25rem}
+.sticky{display:none}
+@media (max-width:47.99rem){
+  .js .sticky{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:.75rem;z-index:20;visibility:hidden;opacity:0;transform:translateY(120%)}
+  .js .sticky.show{visibility:visible;opacity:1;transform:none}
+  .js footer{padding-bottom:7rem}
+}
+@media (min-width:48rem){
+  .wrap{padding:0 2rem}
+  .hero .grid{grid-template-columns:5fr 6fr;align-items:center;gap:3rem;padding-top:2rem;padding-bottom:4rem}
+  .cta .btn{flex:0 0 auto}
+    .order{grid-template-columns:3fr 2fr;gap:4rem}
+  .photos{grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr}
+  .ph{aspect-ratio:auto;min-height:11rem}
+  .ph:first-child{grid-column:1;grid-row:1/3;aspect-ratio:auto}
+  .call .grid{grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+}
+/* Motion: one short entrance on load, colour changes on hover, a small press.
+   All of it is skipped for visitors who ask their device for reduced motion. */
+@media (prefers-reduced-motion:no-preference){
+  .btn{transition:background-color .15s var(--ease),color .15s var(--ease),border-color .15s var(--ease),transform .1s var(--ease)}
+  .btn:active{transform:scale(.98)}
+  .hero h1,.hero .lede,.hero .cta,.hero .visual{animation:enter .5s var(--ease) both}
+  .hero .lede{animation-delay:.06s}.hero .cta{animation-delay:.12s}.hero .visual{animation-delay:.18s}
+  .js .sticky{transition:transform .25s var(--ease),opacity .25s var(--ease),visibility .25s}
+}
+@keyframes enter{from{opacity:0;transform:translateY(.75rem)}}
+.sticky{border-color:var(--ink)}
+.facts a{overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<aside class="sample" aria-label="Sample notice"><div class="wrap">Sample design. Not the official site</div></aside>
+
+<header class="hero">
+  <div class="wrap top">
+    <p class="name">Taqueria las Palmas</p>
+    <a href="tel:+18644514657">(864) 451-4657</a>
+  </div>
+  <div class="wrap grid">
+    <div>
+      <h1>Tacos, sopes and gorditas under the palms on Anderson Road</h1>
+      <p class="lede">Taqueria las Palmas, a Mexican food truck in Greenville, South Carolina</p>
+      <div class="cta">
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Taqueria+las+Palmas+Food+Truck+2703+Anderson+Rd+Greenville+SC"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Get directions</a>
+        <a class="textlink" href="tel:+18644514657">Call (864) 451-4657</a>
+      </div>
+    </div>
+    <div class="visual">
+      <svg class="plate" viewBox="0 0 600 480" aria-hidden="true" focusable="false">
+        <circle cx="470" cy="90" r="34" fill="#F6EBC8"/>
+        <g fill="#F6EBC8"><circle cx="90" cy="60" r="2"/><circle cx="160" cy="110" r="2"/><circle cx="260" cy="50" r="2"/><circle cx="380" cy="140" r="2"/><circle cx="540" cy="180" r="2"/></g>
+        <g>
+          <path d="M120 420 q-8 -150 30 -260" fill="none" stroke="#3C2A1E" stroke-width="14" stroke-linecap="round"/>
+          <g fill="#2F7A4C"><path d="M150 160 q-70 -30 -120 10 q60 -6 120 -10 z"/><path d="M150 160 q-40 -70 -110 -60 q60 30 110 60 z"/><path d="M150 160 q30 -80 100 -70 q-60 30 -100 70 z"/><path d="M150 160 q80 -20 120 30 q-60 -14 -120 -30 z"/><path d="M150 160 q10 -90 -20 -120 q20 60 20 120 z"/></g>
+        </g>
+        <g>
+          <path d="M520 420 q10 -120 -20 -210" fill="none" stroke="#3C2A1E" stroke-width="12" stroke-linecap="round"/>
+          <g fill="#3A8C59"><path d="M500 210 q-60 -26 -100 10 q50 -6 100 -10 z"/><path d="M500 210 q-30 -60 -90 -50 q50 26 90 50 z"/><path d="M500 210 q30 -66 84 -54 q-50 24 -84 54 z"/><path d="M500 210 q66 -16 96 26 q-50 -12 -96 -26 z"/></g>
+        </g>
+        <path d="M150 230 q150 60 300 0" fill="none" stroke="#F6EBC8" stroke-width="2"/>
+        <g fill="#FFB347"><circle cx="190" cy="248" r="6"/><circle cx="240" cy="262" r="6"/><circle cx="300" cy="268" r="6"/><circle cx="360" cy="262" r="6"/><circle cx="410" cy="248" r="6"/></g>
+        <rect x="190" y="300" width="260" height="110" rx="12" fill="#F2E6CC"/>
+        <rect x="220" y="320" width="150" height="56" rx="6" fill="#123A2A"/>
+        <rect x="210" y="376" width="170" height="10" rx="4" fill="#E28A2C"/>
+        <path d="M228 360 q30 -24 60 0 z" fill="#E7B66B"/><path d="M300 360 q30 -24 60 0 z" fill="#E7B66B"/>
+        <circle cx="240" cy="414" r="18" fill="#1A2620"/><circle cx="400" cy="414" r="18" fill="#1A2620"/>
+        <rect x="0" y="430" width="600" height="50" fill="#16261E"/>
+      </svg>
+    </div>
+  </div>
+  
+</header>
+
+<main id="main">
+<section aria-labelledby="h-order">
+  <div class="wrap cols">
+    <div>
+      <h2 id="h-order">What they make</h2>
+      <p class="sub">Listed on their Facebook page</p>
+      <ul class="menu"><li>Tacos</li><li>Quesadillas</li><li>Sopes</li><li>Gorditas</li><li>Tortas</li><li>Burritos</li><li>Alambre</li><li>Antojitos</li></ul>
+      <p class="note">Prices are left off this sample until the owner confirms them</p>
+    </div>
+    <div>
+      <h2 id="h-side">Find the truck</h2>
+      <p class="sub">Address on their Facebook page</p>
+      <p class="days">2703 Anderson Rd, Greenville</p>
+      <p class="note">Opening days and hours are left off this sample until the owner confirms them</p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="h-photos">
+  <div class="wrap">
+    <h2 id="h-photos">From the truck</h2>
+    <ul class="photos"><li class="ph"><span><b>The trailer at night</b>from the owner</span></li><li class="ph"><span><b>A plate of tacos</b>from the owner</span></li><li class="ph"><span><b>Sopes</b>from the owner</span></li></ul>
+  </div>
+</section>
+
+<section class="call" aria-labelledby="h-call">
+  <div class="wrap grid">
+    <div>
+      <h2 id="h-call">Call the truck</h2>
+      <p class="num">(864) 451-4657</p>
+      <a class="btn quiet" href="tel:+18644514657"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Call Taqueria las Palmas</a>
+    </div>
+    <dl class="facts"><div><dt>Find us at</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Taqueria+las+Palmas+Food+Truck+2703+Anderson+Rd+Greenville+SC">2703 Anderson Rd, Greenville, SC 29611</a></dd></div><div><dt>Facebook</dt><dd><a href="https://www.facebook.com/profile.php?id=61555311196836">Taqueria las Palmas on Facebook</a></dd></div></dl>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Sample page built for Taqueria las Palmas as a design proposal. It is not run by the business and takes no orders, bookings or payments.</p>
+    <details>
+      <summary>Details to confirm with the owner</summary>
+      <ul><li>The full menu and prices</li><li>Opening days and hours</li><li>Photos: the owner's own, used with permission</li><li>Address and phone are from the public Google listing and their Facebook page, read 21 Nov 2026</li></ul>
+    </details>
+  </div>
+  <a class="btn sticky" href="https://www.google.com/maps/search/?api=1&amp;query=Taqueria+las+Palmas+Food+Truck+2703+Anderson+Rd+Greenville+SC">Get directions</a>
+</footer>
+<script>(function(){
+  var bar=document.querySelector('.sticky'),a=document.querySelector('.hero .btn'),b=document.querySelector('.call .btn');
+  if(!('IntersectionObserver' in window)||!bar||!a||!b)return;
+  var seen={a:true,b:false};
+  function upd(){bar.classList.toggle('show',!seen.a&&!seen.b)}
+  new IntersectionObserver(function(e){seen.a=e[0].isIntersecting;upd()}).observe(a);
+  new IntersectionObserver(function(e){seen.b=e[0].isIntersecting;upd()}).observe(b);
+})();</script>
+</body>
+</html>
